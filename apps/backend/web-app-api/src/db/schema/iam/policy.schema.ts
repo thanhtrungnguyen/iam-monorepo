@@ -26,9 +26,6 @@ export const policy = pgTable(
   },
   (table) => [uniqueIndex('policy_name_tenant_uq').on(table.name, table.tenantId)],
 );
-// export const policyIdx = {
-//   // nameTenantUq: uniqueIndex('policy_name_tenant_uq').on(policy.name, policy.tenantId),
-// };
 export const policyRelations = relations(policy, ({ one, many }) => ({
   tenant: one(tenant, { fields: [policy.tenantId], references: [tenant.id] }),
   rolePolicy: many(rolePolicy),

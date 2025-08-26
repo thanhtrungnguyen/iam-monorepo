@@ -23,10 +23,6 @@ export const asset = pgTable(
   (table) => [uniqueIndex('asset_code_tenant_uq').on(table.code, table.tenantId)],
 );
 
-// export const assetIdx = {
-//   // codeTenantUq: uniqueIndex('asset_code_tenant_uq').on(asset.code, asset.tenantId),
-// };
-
 export const assetRelations = relations(asset, ({ one, many }) => ({
   tenant: one(tenant, { fields: [asset.tenantId], references: [tenant.id] }),
   movement: many(assetMovement),

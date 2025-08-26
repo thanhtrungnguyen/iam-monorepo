@@ -23,9 +23,6 @@ export const user = pgTable(
   },
   (table) => [uniqueIndex('user_email_tenant_uq').on(table.email, table.tenantId)],
 );
-// export const userIdx = {
-//   // emailTenantUq: uniqueIndex('user_email_tenant_uq').on(user.email, user.tenantId),
-// };
 
 export const userRelations = relations(user, ({ one, many }) => ({
   tenant: one(tenant, { fields: [user.tenantId], references: [tenant.id] }),

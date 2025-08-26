@@ -22,10 +22,6 @@ export const tenant = pgTable(
   (table) => [uniqueIndex('tenant_slug_uq').on(table.slug)],
 );
 
-// export const tenantIdx = {
-//   // slugUnique: uniqueIndex('tenant_slug_uq').on(tenant.slug),
-// };
-
 export const tenantRelations = relations(tenant, ({ many }) => ({
   // Lazy imports to avoid cycles
   user: many(user),

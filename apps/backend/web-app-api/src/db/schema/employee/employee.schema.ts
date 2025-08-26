@@ -22,10 +22,6 @@ export const employee = pgTable(
   (table) => [uniqueIndex('employee_code_tenant_uq').on(table.code, table.tenantId)],
 );
 
-// export const employeeIdx = {
-//   // codeTenantUq: uniqueIndex('employee_code_tenant_uq').on(employee.code, employee.tenantId),
-// };
-
 export const employeeRelations = relations(employee, ({ one, many }) => ({
   tenant: one(tenant, { fields: [employee.tenantId], references: [tenant.id] }),
   creator: one(user, { fields: [employee.createdBy], references: [user.id] }),

@@ -16,9 +16,6 @@ export const role = pgTable(
   },
   (table) => [uniqueIndex('role_name_tenant_uq').on(table.name, table.tenantId)],
 );
-// export const roleIdx = {
-//   // nameTenantUq: uniqueIndex('role_name_tenant_uq').on(role.name, role.tenantId),
-// };
 export const roleRelations = relations(role, ({ one, many }) => ({
   tenant: one(tenant, { fields: [role.tenantId], references: [tenant.id] }),
   userRole: many(userRole),

@@ -14,9 +14,6 @@ export const group = pgTable(
   },
   (table) => [uniqueIndex('group_name_tenant_uq').on(table.name, table.tenantId)],
 );
-// export const groupIdx = {
-//   // nameTenantUq: uniqueIndex('group_name_tenant_uq').on(group.name, group.tenantId),
-// };
 export const groupRelations = relations(group, ({ one, many }) => ({
   tenant: one(tenant, { fields: [group.tenantId], references: [tenant.id] }),
   members: many(groupUser),
