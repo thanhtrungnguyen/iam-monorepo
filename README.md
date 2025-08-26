@@ -57,6 +57,10 @@ Use `pnpm nx graph` to visualize project dependencies, or install the
 - [Nx Documentation](https://nx.dev)
 - [pnpm Documentation](https://pnpm.io)
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for a history of notable changes.
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
