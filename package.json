@@ -3,9 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "nx run-many --target=serve --projects=web-app,web-app-api --parallel",
-    "dev:web": "pnpm nx serve web-app",
-    "dev:api": "pnpm nx serve web-app-api",
+    "dev:fe": "pnpm nx dev web-app",
+    "dev:be": "pnpm nx serve web-app-api",
     "lint": "pnpm nx run-many -t lint --all",
     "lint:fix": "pnpm nx run-many -t lint --all --fix",
     "format": "prettier --write .",
