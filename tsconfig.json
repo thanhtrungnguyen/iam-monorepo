@@ -2,5 +2,18 @@
   "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./apps/frontend/web-app-e2e"
+    },
+    {
+      "path": "./apps/frontend/web-app"
+    },
+    {
+      "path": "./apps/backend/web-app-api-e2e"
+    },
+    {
+      "path": "./apps/backend/web-app-api"
+    }
+  ]
 }
