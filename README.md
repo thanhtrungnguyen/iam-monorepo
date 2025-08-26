@@ -1,7 +1,8 @@
 # IAM Monorepo
 
-[![CI](https://github.com/OWNER/iam-monorepo/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/iam-monorepo/actions/workflows/ci.yml)
-[![CodeQL](https://github.com/OWNER/iam-monorepo/actions/workflows/codeql.yml/badge.svg)](https://github.com/OWNER/iam-monorepo/actions/workflows/codeql.yml)
+[![CI](https://github.com/thanhtrungnguyen/iam-monorepo/actions/workflows/ci.yml/badge.svg)](https://github.com/thanhtrungnguyen/iam-monorepo/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/thanhtrungnguyen/iam-monorepo/actions/workflows/codeql.yml/badge.svg)](https://github.com/thanhtrungnguyen/iam-monorepo/actions/workflows/codeql.yml)
+[![Commitlint](https://github.com/thanhtrungnguyen/iam-monorepo/actions/workflows/commitlint.yml/badge.svg)](https://github.com/thanhtrungnguyen/iam-monorepo/actions/workflows/commitlint.yml)
 
 A full-stack workspace managed with [Nx](https://nx.dev) and [pnpm](https://pnpm.io). It contains a
 Next.js frontend, an Express API, and several shared TypeScript packages.
