@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "db:generate": "drizzle-kit generate --config apps/backend/web-app-api/drizzle.config.ts --name init2",
+    "db:push": "drizzle-kit push --config apps/backend/web-app-api/drizzle.config.ts --dotenv .env",
+    "db:studio": "drizzle-kit studio --config apps/backend/web-app-api/drizzle.config.ts --dotenv .env",
     "dev:fe": "pnpm nx dev web-app",
     "dev:be": "pnpm nx serve web-app-api",
     "lint": "pnpm nx run-many -t lint --all",
@@ -80,6 +83,7 @@
     "axios": "^1.6.0",
     "compression": "1.8.1",
     "cors": "2.8.5",
+    "dotenv": "17.2.1",
     "drizzle-kit": "0.31.4",
     "drizzle-orm": "0.44.5",
     "express": "^4.21.2",

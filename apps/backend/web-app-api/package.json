@@ -66,6 +66,7 @@
     }
   },
   "dependencies": {
+    "@iam-monorepo/config": "workspace:*",
     "express": "^4.21.2"
   }
 }
