@@ -19,13 +19,13 @@
       "path": "./packages/config"
     },
     {
-      "path": "./packages/shared-dto"
-    },
-    {
       "path": "./packages/shared-constants"
     },
     {
       "path": "./packages/shared-untils"
+    },
+    {
+      "path": "./packages/shared-dto"
     }
   ]
 }
