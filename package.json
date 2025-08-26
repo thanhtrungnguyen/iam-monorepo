@@ -51,6 +51,7 @@
     "@types/react-dom": "19.0.0",
     "autoprefixer": "10.4.13",
     "babel-jest": "^30.0.2",
+    "eslint": "9.34.0",
     "eslint-config-next": "^15.2.4",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-jsx-a11y": "6.10.1",
