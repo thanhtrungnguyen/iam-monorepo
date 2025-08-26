@@ -1,5 +1,7 @@
 # IAM Monorepo
 
+[![CI](https://github.com/OWNER/iam-monorepo/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/iam-monorepo/actions/workflows/ci.yml)
+
 A full-stack workspace managed with [Nx](https://nx.dev) and [pnpm](https://pnpm.io). It contains a
 Next.js frontend, an Express API, and several shared TypeScript packages.
 
