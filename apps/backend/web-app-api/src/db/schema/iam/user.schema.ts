@@ -9,19 +9,23 @@ import { employee } from '../employee/employee.schema';
 import { project } from '../project/project.schema';
 import { assetMovement } from '../asset/asset-movement.schema';
 
-export const user = pgTable('user', {
-  id: uuid('id').defaultRandom().primaryKey(),
-  email: text('email').notNull(),
-  name: text('name'),
-  department: text('department'),
-  tenantId: uuid('tenant_id')
-    .references(() => tenant.id, { onDelete: 'cascade' })
-    .notNull(),
-  ...timestamps,
-});
-export const userIdx = {
-  emailTenantUq: uniqueIndex('user_email_tenant_uq').on(user.email, user.tenantId),
-};
+export const user = pgTable(
+  'user',
+  {
+    id: uuid().defaultRandom().primaryKey(),
+    email: text().notNull(),
+    name: text(),
+    department: text(),
+    tenantId: uuid()
+      .references(() => tenant.id, { onDelete: 'cascade' })
+      .notNull(),
+    ...timestamps,
+  },
+  (table) => [uniqueIndex('user_email_tenant_uq').on(table.email, table.tenantId)],
+);
+// export const userIdx = {
+//   // emailTenantUq: uniqueIndex('user_email_tenant_uq').on(user.email, user.tenantId),
+// };
 
 export const userRelations = relations(user, ({ one, many }) => ({
   tenant: one(tenant, { fields: [user.tenantId], references: [tenant.id] }),

@@ -6,11 +6,11 @@ import { timestamps } from '../../columns.helpers';
 import { employeeProject } from '../employee/employee-project.schema';
 
 export const project = pgTable('project', {
-  id: uuid('id').defaultRandom().primaryKey(),
-  name: text('name').notNull(),
-  ownerId: uuid('owner_id').references(() => user.id, { onDelete: 'set null' }),
-  department: text('department'),
-  tenantId: uuid('tenant_id')
+  id: uuid().defaultRandom().primaryKey(),
+  name: text().notNull(),
+  ownerId: uuid().references(() => user.id, { onDelete: 'set null' }),
+  department: text(),
+  tenantId: uuid()
     .references(() => tenant.id, { onDelete: 'cascade' })
     .notNull(),
   ...timestamps,

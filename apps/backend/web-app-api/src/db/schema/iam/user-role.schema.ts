@@ -6,10 +6,10 @@ import { role } from './role.schema';
 export const userRole = pgTable(
   'user_role',
   {
-    userId: uuid('user_id')
+    userId: uuid()
       .references(() => user.id, { onDelete: 'cascade' })
       .notNull(),
-    roleId: uuid('role_id')
+    roleId: uuid()
       .references(() => role.id, { onDelete: 'cascade' })
       .notNull(),
   },

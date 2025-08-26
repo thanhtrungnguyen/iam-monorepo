@@ -5,22 +5,26 @@ import { user } from '../iam/user.schema';
 import { timestamps } from '../../columns.helpers';
 import { employeeProject } from './employee-project.schema';
 
-export const employee = pgTable('employee', {
-  id: uuid('id').defaultRandom().primaryKey(),
-  code: text('code').notNull(),
-  fullName: text('full_name').notNull(),
-  department: text('department'),
-  createdBy: uuid('created_by').references(() => user.id, { onDelete: 'set null' }),
-  updatedBy: uuid('updated_by').references(() => user.id, { onDelete: 'set null' }),
-  tenantId: uuid('tenant_id')
-    .references(() => tenant.id, { onDelete: 'cascade' })
-    .notNull(),
-  ...timestamps,
-});
+export const employee = pgTable(
+  'employee',
+  {
+    id: uuid().defaultRandom().primaryKey(),
+    code: text().notNull(),
+    fullName: text().notNull(),
+    department: text(),
+    createdBy: uuid().references(() => user.id, { onDelete: 'set null' }),
+    updatedBy: uuid().references(() => user.id, { onDelete: 'set null' }),
+    tenantId: uuid()
+      .references(() => tenant.id, { onDelete: 'cascade' })
+      .notNull(),
+    ...timestamps,
+  },
+  (table) => [uniqueIndex('employee_code_tenant_uq').on(table.code, table.tenantId)],
+);
 
-export const employeeIdx = {
-  codeTenantUq: uniqueIndex('employee_code_tenant_uq').on(employee.code, employee.tenantId),
-};
+// export const employeeIdx = {
+//   // codeTenantUq: uniqueIndex('employee_code_tenant_uq').on(employee.code, employee.tenantId),
+// };
 
 export const employeeRelations = relations(employee, ({ one, many }) => ({
   tenant: one(tenant, { fields: [employee.tenantId], references: [tenant.id] }),

@@ -7,15 +7,15 @@ import { timestamp } from 'drizzle-orm/pg-core';
 export const employeeProject = pgTable(
   'employee_project',
   {
-    employeeId: uuid('employee_id')
+    employeeId: uuid()
       .references(() => employee.id, { onDelete: 'cascade' })
       .notNull(),
-    projectId: uuid('project_id')
+    projectId: uuid()
       .references(() => project.id, { onDelete: 'cascade' })
       .notNull(),
-    roleOnProject: text('role_on_project'),
-    joinedAt: timestamp('joined_at', { withTimezone: true }).defaultNow(),
-    leftAt: timestamp('left_at', { withTimezone: true }),
+    roleOnProject: text(),
+    joinedAt: timestamp({ withTimezone: true }).defaultNow(),
+    leftAt: timestamp({ withTimezone: true }),
   },
   (t) => ({
     pk: primaryKey({ columns: [t.employeeId, t.projectId], name: 'employee_project_pk' }),

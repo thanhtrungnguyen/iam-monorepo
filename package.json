@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "db:generate": "drizzle-kit generate --config apps/backend/web-app-api/drizzle.config.ts --name init2",
-    "db:push": "drizzle-kit push --config apps/backend/web-app-api/drizzle.config.ts --dotenv .env",
-    "db:studio": "drizzle-kit studio --config apps/backend/web-app-api/drizzle.config.ts --dotenv .env",
+    "db:generate": "drizzle-kit generate --config apps/backend/web-app-api/drizzle.config.ts --name init",
+    "db:push": "drizzle-kit push --config apps/backend/web-app-api/drizzle.config.ts",
+    "db:studio": "drizzle-kit studio --config apps/backend/web-app-api/drizzle.config.ts",
     "dev:fe": "pnpm nx dev web-app",
     "dev:be": "pnpm nx serve web-app-api",
     "lint": "pnpm nx run-many -t lint --all",

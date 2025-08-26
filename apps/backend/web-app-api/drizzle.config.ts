@@ -18,4 +18,5 @@ export default defineConfig({
     host: process.env.DB_HOST || 'localhost',
     ssl: false,
   },
+  casing: 'snake_case',
 });

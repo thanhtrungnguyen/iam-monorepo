@@ -10,4 +10,5 @@ export const db = drizzle({
     database: env.DB_NAME,
     host: env.DB_HOST,
   },
+  casing: 'snake_case',
 });

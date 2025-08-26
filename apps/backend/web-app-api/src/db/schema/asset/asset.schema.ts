@@ -7,21 +7,25 @@ import { pgEnum } from 'drizzle-orm/pg-core';
 
 export const assetStatus = pgEnum('asset_status', ['in', 'out', 'maintenance']);
 
-export const asset = pgTable('asset', {
-  id: uuid('id').defaultRandom().primaryKey(),
-  code: text('code').notNull(),
-  name: text('name').notNull(),
-  location: text('location'),
-  status: assetStatus('status').default('in').notNull(),
-  tenantId: uuid('tenant_id')
-    .references(() => tenant.id, { onDelete: 'cascade' })
-    .notNull(),
-  ...timestamps,
-});
+export const asset = pgTable(
+  'asset',
+  {
+    id: uuid().defaultRandom().primaryKey(),
+    code: text().notNull(),
+    name: text().notNull(),
+    location: text(),
+    status: assetStatus().default('in').notNull(),
+    tenantId: uuid()
+      .references(() => tenant.id, { onDelete: 'cascade' })
+      .notNull(),
+    ...timestamps,
+  },
+  (table) => [uniqueIndex('asset_code_tenant_uq').on(table.code, table.tenantId)],
+);
 
-export const assetIdx = {
-  codeTenantUq: uniqueIndex('asset_code_tenant_uq').on(asset.code, asset.tenantId),
-};
+// export const assetIdx = {
+//   // codeTenantUq: uniqueIndex('asset_code_tenant_uq').on(asset.code, asset.tenantId),
+// };
 
 export const assetRelations = relations(asset, ({ one, many }) => ({
   tenant: one(tenant, { fields: [asset.tenantId], references: [tenant.id] }),

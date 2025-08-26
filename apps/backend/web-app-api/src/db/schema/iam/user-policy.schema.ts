@@ -6,10 +6,10 @@ import { policy } from './policy.schema';
 export const userPolicy = pgTable(
   'user_policy',
   {
-    userId: uuid('user_id')
+    userId: uuid()
       .references(() => user.id, { onDelete: 'cascade' })
       .notNull(),
-    policyId: uuid('policy_id')
+    policyId: uuid()
       .references(() => policy.id, { onDelete: 'cascade' })
       .notNull(),
   },

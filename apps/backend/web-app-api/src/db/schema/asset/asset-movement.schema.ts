@@ -7,15 +7,15 @@ import { pgEnum } from 'drizzle-orm/pg-core';
 import { timestamps } from '../../columns.helpers';
 export const movementType = pgEnum('movement_type', ['in', 'out', 'transfer']);
 export const assetMovement = pgTable('asset_movement', {
-  id: uuid('id').defaultRandom().primaryKey(),
-  assetId: uuid('asset_id')
+  id: uuid().defaultRandom().primaryKey(),
+  assetId: uuid()
     .references(() => asset.id, { onDelete: 'cascade' })
     .notNull(),
-  type: movementType('type').notNull(),
-  qty: integer('qty').default(1),
-  note: text('note'),
-  createdBy: uuid('created_by').references(() => user.id, { onDelete: 'set null' }),
-  tenantId: uuid('tenant_id')
+  type: movementType().notNull(),
+  quantity: integer().default(1),
+  note: text(),
+  createdBy: uuid().references(() => user.id, { onDelete: 'set null' }),
+  tenantId: uuid()
     .references(() => tenant.id, { onDelete: 'cascade' })
     .notNull(),
   ...timestamps,

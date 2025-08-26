@@ -6,10 +6,10 @@ import { user } from './user.schema';
 export const groupUser = pgTable(
   'group_user',
   {
-    groupId: uuid('group_id')
+    groupId: uuid()
       .references(() => group.id, { onDelete: 'cascade' })
       .notNull(),
-    userId: uuid('user_id')
+    userId: uuid()
       .references(() => user.id, { onDelete: 'cascade' })
       .notNull(),
   },
