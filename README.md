@@ -1,5 +1,8 @@
 # IAM Monorepo
 
+[![CI](https://github.com/OWNER/iam-monorepo/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/iam-monorepo/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/OWNER/iam-monorepo/actions/workflows/codeql.yml/badge.svg)](https://github.com/OWNER/iam-monorepo/actions/workflows/codeql.yml)
+
 A full-stack workspace managed with [Nx](https://nx.dev) and [pnpm](https://pnpm.io). It contains a
 Next.js frontend, an Express API, and several shared TypeScript packages.
 
@@ -52,3 +55,7 @@ Use `pnpm nx graph` to visualize project dependencies, or install the
 
 - [Nx Documentation](https://nx.dev)
 - [pnpm Documentation](https://pnpm.io)
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
